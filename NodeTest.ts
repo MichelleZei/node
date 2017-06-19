@@ -35,11 +35,3 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
     _response.write("Ich höre Stimmen!");
     _response.end();
 }
-
-//import http = require("http");
-//
-//http.createServer(function(request: http.IncomingMessage, response: http.ServerResponse): void {
-//  response.writeHead(200, {"Content-Type": "text/plain"});
-//  response.write("It's alive!");
-//  response.end();
-//}).listen(3000);

@@ -22,7 +22,7 @@ function handleRequest(_request, _response) {
         console.log(key + ":" + query[key]);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.write("Sie haben folgendes Bestellt: \n Vanille: " + query["Vanille"]);
+    _response.write("Sie haben folgendes Bestellt:" + "\n" + "Vanille:" + " " + query["Vanille"]);
     _response.end();
 }
 //# sourceMappingURL=NodeTest.js.map

@@ -17,12 +17,14 @@ function handleRequest(_request, _response) {
     console.log(_request.url);
     let query = Url.parse(_request.url, true).query;
     console.log(query);
+    _response.setHeader("Access-Control-Allow-Origin", "*");
+    _response.setHeader("content-type", "text/html; charset=utf-8");
     let key;
     for (key in query)
         console.log(key + ":" + query[key]);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.write("Sie haben folgendes Bestellt:" + "\n" + "Vanille:" + " " + query["Vanille"]);
+    _response.write("Sie haben folgendes bestellt:" + "<br>" + "Vanille:" + " " + query["Vanille"] + "<br>");
     _response.write("Die Bestellung geht an: " + query["Vorname"]);
     _response.end();
 }

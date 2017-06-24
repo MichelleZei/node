@@ -37,9 +37,8 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.write("Sie haben folgendes bestellt:" + "<br>" + "Vanille:" + " " + query["Schoko"] + "<br>");
     _response.write("Die Bestellung geht an: " + query["Vorname"] + " " + query["Name"] + " "  + query["strasse"] + "<br>");
     _response.write("Die Rechnung geht an: " + query["Mail"] + "<br>");
-    _response.write("Sie haben " + query["Versand"] + "gewählt.");
+    _response.write("Sie haben " + query["Versand"] + " gewählt.");
     _response.end();
 }

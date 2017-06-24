@@ -1,15 +1,16 @@
 {
-	"name" : "NodeTest",
+	"name" : "database",
 	"version" : "0.0.1",
-	"description" : "NodeTest",
+	"description" : "database",
 	"author" : "Michelle Zeiﬂner",
-	"main" : "NodeTest.js",
+	"main" : "Server.js",
 	"scripts" : {
-		"start" : "node NodeTest.js"
+		"start" : "node Server.js"
 	},
 	"engines" : {
 		"node" : "4.6.0"
 	},
 	"dependencies" : {
+		"mongodb": "2.2.12"
 	}
 }

@@ -19,12 +19,12 @@ function handleRequest(_request, _response) {
     _response.setHeader("content-type", "text/html; charset=utf-8");
     let query = Url.parse(_request.url, true).query;
     console.log(query);
-    //    let key: string;
-    //    for (key in query)
-    //        console.log(key + ":" + query[key]);
+    let key;
+    for (key in query)
+        console.log(key + ":" + query[key]);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.write("Sie haben " + query["color"] + " gew�hlt.");
+    _response.write("Sie haben " + query["color"] + " gew�hlt." + "<br>");
     _response.write("Sie haben " + query["text"] + " eingegeben.");
     _response.end();
 }

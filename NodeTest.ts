@@ -31,13 +31,13 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
     let query: AssocStringString = Url.parse(_request.url, true).query;
     console.log(query);
 
-//    let key: string;
-//    for (key in query)
-//        console.log(key + ":" + query[key]);
+    let key: string;
+    for (key in query)
+        console.log(key + ":" + query[key]);
 
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.write("Sie haben " + query["color"] + " gewählt.");
+    _response.write("Sie haben " + query["color"] + " gewählt." + "<br>");
     _response.write("Sie haben " + query["text"] + " eingegeben.");
     _response.end();
 }

@@ -1,47 +1,41 @@
+"use strict";
 /**
  * Simple database insertion and query for MongoDB
  * @author: Jirka Dell'Oro-Friedl
  */
-//import Mongo = require("mongodb");
-//console.log("Database starting");
-//
-//let databaseURL: string = "mongodb://localhost:27017/Test";
-//let db: Mongo.Db;
-//let students: Mongo.Collection;
-//
-//if (process.env.NODE_ENV == "production")
-//    databaseURL = "mongodb://username:password@hostname:port/database";
-//
-//Mongo.MongoClient.connect(databaseURL, handleConnect);
-//
-//function handleConnect(_e: Mongo.MongoError, _db: Mongo.Db): void {
-//    if (_e)
-//        console.log("Unable to connect to database, error: ", _e);
-//    else {
-//        console.log("Connected to database!");
-//        db = _db;
-//        students = _db.collection("students");
-//    }
-//}
-//
-//export function insert(_doc: StudentData): void {
-//    students.insertOne(_doc, handleInsert);
-//}
-//
-//function handleInsert(_e: Mongo.MongoError): void {
-//    console.log("Database insertion returned -> " + _e);
-//}
-//
-//
-//export function findAll(_callback: Function): void {
-//    var cursor: Mongo.Cursor = students.find();
-//    cursor.toArray(prepareAnswer);
-//
-//    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
-//        if (_e)
-//            _callback("Error" + _e);
-//        else
-//            _callback(JSON.stringify(studentArray));
-//    }
-//}
+const Mongo = require("mongodb");
+console.log("Database starting");
+let databaseURL = "mongodb://Mubbl:1234@ds129462.mlab.com:29462/eia2";
+let db;
+let students;
+if (process.env.NODE_ENV == "production")
+    databaseURL = "mongodb://Mubbl:1234@ds129462.mlab.com:29462/eia2";
+Mongo.MongoClient.connect(databaseURL, handleConnect);
+function handleConnect(_e, _db) {
+    if (_e)
+        console.log("Unable to connect to database, error: ", _e);
+    else {
+        console.log("Connected to database!");
+        db = _db;
+        students = _db.collection("students");
+    }
+}
+function insert(_doc) {
+    students.insertOne(_doc, handleInsert);
+}
+exports.insert = insert;
+function handleInsert(_e) {
+    console.log("Database insertion returned -> " + _e);
+}
+function findAll(_callback) {
+    var cursor = students.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, studentArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback(JSON.stringify(studentArray));
+    }
+}
+exports.findAll = findAll;
 //# sourceMappingURL=Database.js.map

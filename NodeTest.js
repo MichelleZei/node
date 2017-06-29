@@ -22,7 +22,8 @@ function handleRequest(_request, _response) {
         console.log(key + ":" + query[key]);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
-    _response.write("Ich h�re Stimmen!");
+    _response.write("Du hast die Farbe " + query["color"] + " gew�hlt. ");
+    _response.write("Dein Text " + query["text"]);
     _response.end();
 }
 //# sourceMappingURL=NodeTest.js.map

@@ -5,7 +5,7 @@
 
 import Http = require("http");
 import Url = require("url");
-import Database = require("./Database");
+import Database = require("./database");
 
 console.log("Server starting");
 

@@ -11,6 +11,6 @@
 		"node" : "4.6.0"
 	},
 	"dependencies" : {
-		"mongodb" : "2.2.29"
+		"mongodb" : "2.2.12"
 	}
 }

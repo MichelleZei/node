@@ -20,6 +20,17 @@ function handleConnect(_e, _db) {
         students = _db.collection("students");
     }
 }
+function findOne(_callback) {
+    var cursor = students.find();
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, studentArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback((studentArray));
+    }
+}
+exports.findOne = findOne;
 function insert(_doc) {
     students.insertOne(_doc, handleInsert);
 }

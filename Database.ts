@@ -24,6 +24,18 @@ function handleConnect(_e: Mongo.MongoError, _db: Mongo.Db): void {
     }
 }
 
+export function findOne(_callback: Function): void {
+    var cursor: Mongo.Cursor = students.find();
+    cursor.toArray(prepareAnswer);
+
+    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback((studentArray));
+    }
+}
+
 export function insert(_doc: StudentData): void {
     students.insertOne(_doc, handleInsert);
 }

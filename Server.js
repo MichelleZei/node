@@ -5,7 +5,7 @@
 "use strict";
 const Http = require("http");
 const Url = require("url");
-const Database = require("./database");
+const Database = require("./Database");
 console.log("Server starting");
 let port = process.env.PORT;
 if (port == undefined)
